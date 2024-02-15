@@ -7,7 +7,8 @@ async function run() {
     const firewallId = core.getInput('firewall-id');
     const rules = JSON.parse(core.getInput('rules'));
 
-    await axios.post(
+    console.log('Request payload:', JSON.stringify({ rules: rules }));
+    const response = await axios.post(
       `https://api.hetzner.cloud/v1/firewalls/${firewallId}/actions/set_rules`,
       { rules },
       {
@@ -17,6 +18,7 @@ async function run() {
         },
       }
     );
+    console.log('Response:', response.data);
 
     core.info('Firewall rules updated successfully');
   } catch (error) {
