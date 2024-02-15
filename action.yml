@@ -1,15 +1,14 @@
-name: 'Firewall Rules Action'
-description: 'Updates the firewall rules on Hetzner Cloud'
+name: Firewall Rules Action
+description: Updates the firewall rules on Hetzner Cloud to use the current Github action runner's IP address
 inputs:
   api-token:
-    description: 'Hetzner Cloud API token'
+    description: Hetzner Cloud API token
     required: true
   firewall-id:
-    description: 'The ID of the firewall to update'
-    required: true
-  rules:
-    description: 'JSON array of firewall rules to apply'
+    description: The ID of the firewall to update (You can find this in the Hetzner Cloud Console in your browser address bar)
     required: true
 runs:
-  using: 'node20'
-  main: 'index.js'
+  using: node20
+  pre: code/initialize.js
+  main: code/modify.js
+  post: code/restore.js

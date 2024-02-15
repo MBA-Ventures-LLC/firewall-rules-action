@@ -1,7 +1,7 @@
 {
   "name": "firewall-rules-action",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "code/index.js",
   "dependencies": {
     "@actions/core": "^1.2.6",
     "axios": "^0.21.1"
