@@ -5,8 +5,9 @@ async function run() {
   try {
     const apiToken = core.getInput('api-token');
     const firewallId = core.getInput('firewall-id');
-    const rules = JSON.parse(core.getInput('rules'));
-    
+    const rulesInput = core.getInput('rules');
+    const rules = JSON.parse(rulesInput);
+        
     await axios.post(
       `https://api.hetzner.cloud/v1/firewalls/${firewallId}/actions/set_rules`,
       { rules },
