@@ -1,0 +1,15 @@
+name: 'Firewall Rules Action'
+description: 'Updates the firewall rules on Hetzner Cloud'
+inputs:
+  api-token:
+    description: 'Hetzner Cloud API token'
+    required: true
+  firewall-id:
+    description: 'The ID of the firewall to update'
+    required: true
+  rules:
+    description: 'JSON array of firewall rules to apply'
+    required: true
+runs:
+  using: 'node20'
+  main: 'index.js'
